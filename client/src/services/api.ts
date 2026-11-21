@@ -15,7 +15,8 @@ async function request(
     const error = await response.text();
     throw new Error(error || `Request failed: ${response.status}`);
   }
-  return response.text() ? response.json() : null;
+  const text = await response.text();
+  return text ? JSON.parse(text) : null;
 }
 
 // Contact enquiry submission
