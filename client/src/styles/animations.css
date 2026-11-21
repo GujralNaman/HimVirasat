@@ -1,0 +1,25 @@
+@keyframes drift {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-18px); }
+}
+
+@keyframes sun-breathe {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.04); }
+}
+
+@keyframes scroll-cue {
+  0% { transform: scaleY(0); transform-origin: top; }
+  45% { transform: scaleY(1); transform-origin: top; }
+  55% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+.anim-drift { animation: drift 14s ease-in-out infinite; }
+.anim-drift-slow { animation: drift 22s ease-in-out infinite reverse; }
+.anim-sun { animation: sun-breathe 7s ease-in-out infinite; transform-origin: center; }
+.anim-scroll-cue { animation: scroll-cue 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-drift, .anim-drift-slow, .anim-sun, .anim-scroll-cue { animation: none; }
+}

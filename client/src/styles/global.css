@@ -1,0 +1,141 @@
+:root {
+  --forest: #183c30;
+  --ivory: #ede3cf;
+  --gold: #b99a59;
+  --terra: #a75e42;
+  --nav-h: 84px;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--ivory);
+  color: var(--forest);
+  font-family: "Manrope", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--forest);
+  color: var(--ivory);
+}
+
+section[id] {
+  scroll-margin-top: calc(var(--nav-h) - 1px);
+}
+
+.font-display {
+  font-family: "Cormorant Garamond", serif;
+}
+
+.eyebrow {
+  font-family: "Manrope", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+@media (min-width: 640px) {
+  .eyebrow {
+    font-size: 0.75rem;
+  }
+}
+
+/* Subtle paper grain to give the ivory depth without gradients */
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.35;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.72 0 0 0 0 0.6 0 0 0 0 0.35 0 0 0 0.18 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.img-fallback {
+  background-color: var(--forest);
+  background-image: repeating-linear-gradient(135deg, rgba(185, 154, 89, 0.12) 0 1px, transparent 1px 14px);
+}
+
+.link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition: background-size 0.4s ease, color 0.3s ease;
+}
+
+.link-underline:hover,
+.link-underline:focus-visible {
+  background-size: 100% 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+.focus\:not-sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+.focus\:fixed:focus {
+  position: fixed;
+}
+.focus\:left-4:focus {
+  left: 1rem;
+}
+.focus\:top-4:focus {
+  top: 1rem;
+}
+.focus\:z-\[110\]:focus {
+  z-index: 110;
+}
+.focus\:bg-forest:focus {
+  background-color: var(--forest);
+}
+.focus\:px-4:focus {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.focus\:py-2:focus {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.focus\:text-ivory:focus {
+  color: var(--ivory);
+}
+
+.drop-shadow {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.35));
+}
